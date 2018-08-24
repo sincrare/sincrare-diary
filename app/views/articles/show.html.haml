@@ -6,7 +6,9 @@
     .title
       %h2= @article.title
     .content
-      = @article.content
+      = simple_format @article.content
 
 
   = link_to '戻る', articles_path
+
+= render 'sidebar'
