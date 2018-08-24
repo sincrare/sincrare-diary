@@ -1,0 +1,12 @@
+.col-md-9
+  .article
+    .entry_at
+      = fa_icon('calendar-o')
+      = l @article.entry_at
+    .title
+      %h2= @article.title
+    .content
+      = @article.content
+
+
+  = link_to '戻る', articles_path

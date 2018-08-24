@@ -201,7 +201,14 @@ ja:
   time:
     am: 午前
     formats:
-      default: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
+      default: "%Y年%m月%d日(%a) %H時%M分%S秒"
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
+  views:
+    pagination:
+      previous: "‹ 前ページ"
+      next: "次ページ ›"
+      first: "« 最初のページ"
+      last: "最後のページ »"
+      truncate: "..."

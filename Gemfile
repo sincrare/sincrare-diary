@@ -19,6 +19,8 @@ gem 'font-awesome-rails'
 gem 'simple_form'
 gem 'carrierwave'
 gem 'faker'
+gem 'kaminari'
+gem 'kaminari-bootstrap'
 
 group :development, :test do
   gem 'rspec-rails'

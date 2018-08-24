@@ -8,4 +8,16 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    = yield
+    = render 'layouts/header'
+    .main.container-fluid
+      - if notice
+        %p.notice= notice
+      - if alert
+        %p.alert= alert
+      = yield
+      = render 'layouts/sidebar'
+
+    %footer
+      %p
+        %small
+          Copyright (C) 2018 sincrare All Rights Reserved.

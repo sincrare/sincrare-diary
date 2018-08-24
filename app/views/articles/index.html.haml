@@ -1,0 +1,14 @@
+.col-md-9
+  = paginate @articles
+  - @articles.each do |article|
+    .article
+      .entry_at
+        = fa_icon('calendar-o')
+        = l article.entry_at
+      .title
+        %h2= article.title
+      .content
+        = article.content.truncate(100, omission: '…')
+        - if article.content.length > 100
+          =link_to "続きを読む", article_path(article)
+  = paginate @articles

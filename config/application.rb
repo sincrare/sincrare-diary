@@ -24,6 +24,7 @@ module SincrareDiary
     config.active_record.default_timezone = :local
 
     config.i18n.default_locale = :ja
+    Faker::Config.locale = :en
 
     config.generators do |g|
       g.test_framework :rspec, view_specs: false, helper_specs: false, routing_specs: false
