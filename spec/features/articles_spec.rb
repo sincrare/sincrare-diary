@@ -2,8 +2,13 @@ require 'rails_helper'
 
 RSpec.feature "Articles", type: :feature do
   let(:article) { create(:article)}
+  let(:admin) { create(:user, :with_admin)}
 
-  scenario "user creates a new article" do
+  before do
+    login_as(admin)
+  end
+
+  scenario "管理者は記事を投稿できること" do
     visit admin_articles_path
     click_on "新規投稿"
     expect {
@@ -15,7 +20,7 @@ RSpec.feature "Articles", type: :feature do
     }.to change(Article, :count).by(1)
   end
 
-  scenario "user update a article" do
+  scenario "管理者は記事を更新できること" do
     article
     visit admin_articles_path
     click_on "編集"
@@ -27,7 +32,7 @@ RSpec.feature "Articles", type: :feature do
     expect(article.reload.title).to eq "記事の更新"
   end
 
-  scenario "user delete a article" do
+  scenario "管理者は記事を削除できること" do
     article
     visit admin_articles_path
     expect {
