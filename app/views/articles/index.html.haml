@@ -8,7 +8,9 @@
       .title
         %h2= article.title
       .content
-        = article.content.truncate(100, omission: '…')
+        = simple_format article.content.truncate(100, omission: '…')
         - if article.content.length > 100
           =link_to "続きを読む", article_path(article)
   = paginate @articles
+
+= render 'sidebar'

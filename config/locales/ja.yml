@@ -212,3 +212,16 @@ ja:
       first: "« 最初のページ"
       last: "最後のページ »"
       truncate: "..."
+  activerecord:
+    attributes:
+      user:
+        name: 名前
+        password: パスワード
+        password_confirmation: パスワード確認
+        email: メールアドレス
+        remember_me: 次回から自動でログインする
+      article:
+        entry_at: 投稿日
+        title: タイトル
+        content: 本文
+        published: 公開

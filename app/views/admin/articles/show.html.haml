@@ -1,0 +1,16 @@
+%p
+  %b 投稿日:
+  = l @article.entry_at
+%p
+  %b タイトル:
+  = @article.title
+%p
+  %b 本文:
+  = simple_format @article.content
+%p
+  %b 公開有無:
+  = @article.published ? "公開" : "非公開"
+
+= link_to '編集', edit_admin_article_path(@article)
+\|
+= link_to '戻る', admin_articles_path
