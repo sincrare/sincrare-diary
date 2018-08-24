@@ -1,0 +1,18 @@
+%h2
+  #{resource_name.to_s.humanize} アカウント情報編集
+= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :email, required: true, autofocus: true
+    - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+      %p
+        メールアドレスの認証待ち中:  #{resource.unconfirmed_email}
+    = f.input :password, autocomplete: "off", hint: "(パスワードを変更しない場合は空欄にしてください)", required: false
+    = f.input :password_confirmation, required: false
+    = f.input :current_password, hint: "現在のパスワード", required: true
+  .form-actions
+    = f.button :submit, "更新する", class: "btn-primary"
+%h3 アカウントを削除する
+%p
+  #{link_to "アカウントを削除する", registration_path(resource_name), data: { confirm: "削除してもよろしいですか?" }, method: :delete}
+= link_to "戻る", :back
