@@ -16,6 +16,4 @@ RSpec.describe Article, type: :model do
     article.title = "   "
     expect(article).to_not be_valid
   end
-
-  it "is valid with "
 end
