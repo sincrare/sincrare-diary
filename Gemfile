@@ -21,6 +21,7 @@ gem 'carrierwave'
 gem 'faker'
 gem 'kaminari'
 gem 'kaminari-bootstrap'
+gem 'dotenv-rails'
 
 group :development, :test do
   gem 'rspec-rails'
