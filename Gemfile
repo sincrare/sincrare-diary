@@ -21,13 +21,11 @@ gem 'carrierwave'
 gem 'faker'
 gem 'kaminari'
 gem 'kaminari-bootstrap'
+gem 'dotenv-rails'
 
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
-  gem 'capybara'
-  gem 'selenium-webdriver'
-  gem 'chromedriver-helper'
   gem 'launchy'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
@@ -37,6 +35,12 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+end
+
+group :test do
+  gem 'capybara'
+  gem 'selenium-webdriver'
+  gem 'chromedriver-helper'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

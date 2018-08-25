@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.feature "Signins", type: :feature do
-  scenario "ユーザーがサインインする" do
+RSpec.describe "Signins", type: :system do
+  it "ユーザーがサインインする" do
     visit root_path
     expect {
       click_on "新規ユーザー登録"
