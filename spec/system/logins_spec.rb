@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.feature "Logins", type: :feature do
+RSpec.describe "Logins", type: :system do
   let(:user) { create(:user) }
 
-  scenario "ユーザーがログインできること" do
+  it "ユーザーがログインできること" do
     visit root_path
     click_on "ログイン"
     fill_in "メールアドレス", with: user.email
@@ -12,7 +12,7 @@ RSpec.feature "Logins", type: :feature do
     expect(page).to have_content "ログインしました。"
   end
 
-  scenario "ユーザーがログアウトできること" do
+  it "ユーザーがログアウトできること" do
     login_as(user)
     visit root_path
     click_on "ログアウト"
