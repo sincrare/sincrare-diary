@@ -1,4 +1,5 @@
 -# frozen_string_literal: true
+- @article.default_images_build
 = simple_form_for [:admin, @article] do |f|
   = f.error_notification
   = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
@@ -9,5 +10,12 @@
     = f.input :content
     = f.input :published
 
+    = f.simple_fields_for :article_images do |img|
+      .image_field
+        -if img.object.image?
+          .tag-sample= "挿入タグ:<img src='#{img.object.image.url}'>"
+          .uploaded-image= image_tag img.object.image.url
+        = img.file_field :image
+
   .form-actions
-    = f.button :submit, class: "btn btn-default"
+    = f.button :submit, class: "btn btn-primary"
