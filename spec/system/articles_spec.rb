@@ -5,6 +5,7 @@ RSpec.describe "Articles", type: :system, js: true do
   let(:admin) { create(:user, :with_admin)}
 
   before do
+    admin.confirm
     login_as(admin)
   end
 
