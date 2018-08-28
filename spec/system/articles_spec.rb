@@ -42,4 +42,18 @@ RSpec.describe "Articles", type: :system, js: true do
       expect(page).to have_content "記事を削除しました"
     }.to change(Article, :count).by(-1)
   end
+
+  it "管理者は画像をアップロードできること" do
+    article
+    visit admin_articles_path
+    click_on "編集"
+    expect {
+      fill_in "タイトル", with: "記事の更新"
+      attach_file "article_article_images_attributes_0_image", Rails.root.join('spec', 'factories', 'files', 'sample.png')
+      click_on "更新する"
+      expect(page).to have_content "記事を更新しました"
+    }.to_not change(Article, :count)
+    click_on "編集"
+    expect(page).to have_content "sample.png"
+  end
 end

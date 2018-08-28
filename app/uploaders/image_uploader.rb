@@ -20,11 +20,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # end
 
   # Process files as they are uploaded:
-  process scale: [500, 500]
-  #
-  # def scale(width, height)
-  #   # do something
-  # end
+  process :resize_to_limit => [500, 500]
 
   # Create different versions of your uploaded files:
   # version :thumb do
