@@ -5,6 +5,7 @@
     %tr
       %th 投稿日
       %th タイトル
+      %th 閲覧権限
       %th 公開
       %th
       %th
@@ -15,6 +16,7 @@
       %tr
         %td= l article.entry_at
         %td= article.title
+        %td= article.access_level
         %td= article.published ? "公開" : "非公開"
         %td= link_to '詳細', admin_article_path(article)
         %td= link_to '編集', edit_admin_article_path(article)
