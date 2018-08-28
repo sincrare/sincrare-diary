@@ -10,6 +10,7 @@ class Article < ApplicationRecord
 
   scope :order_desc, -> { order(entry_at: :desc) }
   scope :published, -> { where(published: true) }
+  scope :accessable, -> (user) { where("access_level <= ?", user.nil? ? 0 : user.access_level_before_type_cast) }
 
   def default_images_build
     article_image_count = 10

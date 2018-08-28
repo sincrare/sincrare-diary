@@ -1,11 +1,11 @@
 class ArticlesController < ApplicationController
 
   def index
-    @articles = Article.published.order_desc.page(params[:page])
+    @articles = Article.published.accessable(current_user).order_desc.page(params[:page])
   end
 
   def show
-    @article = Article.find(params[:id])
+    @article = Article.published.accessable(current_user).find(params[:id])
   end
 
 end

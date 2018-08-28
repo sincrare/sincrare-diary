@@ -9,7 +9,7 @@
     = f.input :title
     = f.input :content
     = f.input :published
-    = f.input :access_level, collection: [ ['全公開', 'normal'],[ '友達権限', 'friend"'], [ '家族権限', 'family'] ], as: :radio_buttons, checked: 'normal'
+    = f.input :access_level, collection: [ ['全公開', 'normal'],[ '友達権限', 'friend'], [ '家族権限', 'family'] ], as: :radio_buttons, checked: 'normal'
     -#= f.input :access_level, collection: Article.access_levels, as: :radio_buttons, checked: 0
 
     = f.simple_fields_for :article_images do |img|
