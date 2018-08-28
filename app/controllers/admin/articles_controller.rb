@@ -53,6 +53,6 @@ class Admin::ArticlesController < Admin::ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def article_params
-      params.require(:article).permit(:entry_at, :title, :content, :published)
+      params.require(:article).permit(:entry_at, :title, :content, :published, { article_images_attributes: [:id, :image] })
     end
 end

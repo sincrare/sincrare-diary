@@ -3,6 +3,10 @@ require 'rails_helper'
 RSpec.describe "Logins", type: :system do
   let(:user) { create(:user) }
 
+  before do
+    user.confirm
+  end
+
   it "ユーザーがログインできること" do
     visit root_path
     click_on "ログイン"

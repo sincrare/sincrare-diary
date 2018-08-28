@@ -18,6 +18,7 @@ gem 'jquery-ui-rails'
 gem 'font-awesome-rails'
 gem 'simple_form'
 gem 'carrierwave'
+gem 'rmagick'
 gem 'faker'
 gem 'kaminari'
 gem 'kaminari-bootstrap'
@@ -41,6 +42,7 @@ group :test do
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
+  gem 'database_rewinder'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
