@@ -15,12 +15,12 @@ RSpec.describe "Signins", type: :system do
       fill_in "user_password", with: "test12345"
       fill_in "user_password_confirmation", with: "test12345"
       click_on "登録する"
-    }.to change(ActionMailer::Base.deliveries, :size).by(1)
+    }.to change(ActionMailer::Base.deliveries, :size).by(1).and change(User, :count).by(1)
     expect(page).to have_content "本人確認用のメールを送信しました。メール内のリンクからアカウントを有効化させてください。"
     mail = ActionMailer::Base.deliveries.last
     url = extract_confirmation_url(mail)
     user = User.last
-    expect(user.confirmed?).to be false
+    expect(user.confirmed?).to be_falsey
     visit url.sub("http://localhost:3000", "")
     expect(page).to have_content 'アカウントを登録しました。'
     expect(user.reload.confirmed?).to be true
