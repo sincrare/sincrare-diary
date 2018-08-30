@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Articles", type: :system, js: true do
-  let(:article) { create(:article)}
+  let!(:article) { create(:article)}
   let(:admin) { create(:user, :with_admin)}
 
   before do
@@ -22,7 +22,6 @@ RSpec.describe "Articles", type: :system, js: true do
   end
 
   it "管理者は記事を更新できること" do
-    article
     visit admin_articles_path
     click_on "編集"
     expect {
@@ -34,7 +33,6 @@ RSpec.describe "Articles", type: :system, js: true do
   end
 
   it "管理者は記事を削除できること" do
-    article
     visit admin_articles_path
     expect {
       click_on "削除"
@@ -44,12 +42,12 @@ RSpec.describe "Articles", type: :system, js: true do
   end
 
   it "管理者は画像をアップロードできること" do
-    article
     visit admin_articles_path
     click_on "編集"
+    click_on "画像の追加"
     expect {
       fill_in "タイトル", with: "記事の更新"
-      attach_file "article_article_images_attributes_0_image", Rails.root.join('spec', 'factories', 'files', 'sample.png')
+      find(".image_field input[type='file']").set(Rails.root.join('spec', 'factories', 'files', 'sample.png'))
       click_on "更新する"
       expect(page).to have_content "記事を更新しました"
     }.to_not change(Article, :count)

@@ -225,3 +225,15 @@ ja:
         title: タイトル
         content: 本文
         published: 公開
+  enumerize:
+    article:
+      access_level:
+        "normal": "全公開"
+        "friend": "友達権限"
+        "family": "家族権限"
+    user:
+      access_level:
+        "normal": "一般権限"
+        "friend": "友達権限"
+        "family": "家族権限"
+

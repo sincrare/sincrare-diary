@@ -1,5 +1,4 @@
 -# frozen_string_literal: true
-- @article.default_images_build
 = simple_form_for [:admin, @article] do |f|
   = f.error_notification
   = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
@@ -9,15 +8,14 @@
     = f.input :title
     = f.input :content
     = f.input :published
-    = f.input :access_level, collection: [ ['全公開', 'normal'],[ '友達権限', 'friend'], [ '家族権限', 'family'] ], as: :radio_buttons, checked: 'normal'
+    = f.input :access_level, collection: Article.access_level.options, as: :radio_buttons, checked: 'normal'
     -#= f.input :access_level, collection: Article.access_levels, as: :radio_buttons, checked: 0
 
-    = f.simple_fields_for :article_images do |img|
-      .image_field
-        -if img.object.image?
-          .tag-sample= "挿入タグ:<img src='#{img.object.image.url}'>"
-          .uploaded-image= image_tag img.object.image.url
-        = img.file_field :image
+    .article_images
+      = f.simple_fields_for :article_images do |img|
+        = render 'article_image_fields', f: img
+      .links
+        = link_to_add_association '画像の追加',f, :article_images
 
   .form-actions
     = f.button :submit, class: "btn btn-primary"

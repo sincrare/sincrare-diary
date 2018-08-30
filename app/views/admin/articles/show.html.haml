@@ -9,7 +9,7 @@
   = simple_format @article.content
 %p
   %b 閲覧権限:
-  = @article.access_level
+  = @article.access_level_text
 %p
   %b 公開有無:
   = @article.published ? "公開" : "非公開"
