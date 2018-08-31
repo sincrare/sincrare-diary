@@ -25,6 +25,7 @@ gem 'kaminari-bootstrap'
 gem 'dotenv-rails'
 gem 'cocoon'
 gem 'enumerize'
+gem 'fog-aws'
 
 group :development, :test do
   gem 'rspec-rails'
