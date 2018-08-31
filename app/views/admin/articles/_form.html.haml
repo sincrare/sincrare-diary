@@ -9,7 +9,6 @@
     = f.input :content
     = f.input :published
     = f.input :access_level, collection: Article.access_level.options, as: :radio_buttons, checked: 'normal'
-    -#= f.input :access_level, collection: Article.access_levels, as: :radio_buttons, checked: 0
 
     .article_images
       = f.simple_fields_for :article_images do |img|
