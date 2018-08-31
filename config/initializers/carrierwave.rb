@@ -1,3 +1,7 @@
+require 'carrierwave/storage/abstract'
+require 'carrierwave/storage/file'
+require 'carrierwave/storage/fog'
+
 CarrierWave.configure do |config|
   config.fog_credentials = {
       provider: 'AWS',
@@ -6,6 +10,6 @@ CarrierWave.configure do |config|
       region: 'ap-northeast-1'
   }
 
-  config.fog_provider = 'fog-aws'
+  config.fog_provider = 'fog/aws'
   config.fog_directory  = 'sincrare-diary'
 end
