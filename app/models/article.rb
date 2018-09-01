@@ -12,4 +12,8 @@ class Article < ApplicationRecord
   scope :order_desc, -> { order(entry_at: :desc) }
   scope :published, -> { where(published: true) }
   scope :accessible, -> (user) { where("access_level <= ?", user.nil? ? 0 : user.access_level_before_type_cast) }
+
+  def accesible?(user)
+    access_level_before_type_cast <= (user.nil? ? 0 : user.access_level_before_type_cast)
+  end
 end

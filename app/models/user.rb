@@ -6,5 +6,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :confirmable
 
-  enumerize :access_level, in: { normal: 0, friend: 1, family: 2 }, scope: :having_status
+  enumerize :access_level, in: { normal: 0, friend: 1, family: 2 }
 end

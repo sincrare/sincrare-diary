@@ -18,5 +18,6 @@ CarrierWave.configure do |config|
     config.fog_public = false
   else
     config.storage :file
+    config.asset_host = "http://localhost:3000"
   end
 end
