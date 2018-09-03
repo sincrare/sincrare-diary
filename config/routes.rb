@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'article_images/show'
   root "articles#index"
   devise_for :users
   resources :articles, only: [:index, :show] do
