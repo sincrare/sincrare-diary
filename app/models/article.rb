@@ -6,6 +6,11 @@ class Article < ApplicationRecord
 
   has_many :article_images, dependent: :destroy
   accepts_nested_attributes_for :article_images, allow_destroy: true
+  has_many :article_tags, dependent: :destroy
+  accepts_nested_attributes_for :article_tags
+  has_many :comments, dependent: :destroy
+  has_many :like, dependent: :destroy
+
 
   enumerize :access_level, in: { normal: 0, friend: 1, family: 2 }
 
