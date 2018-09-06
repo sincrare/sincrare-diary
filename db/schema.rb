@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_02_230957) do
+ActiveRecord::Schema.define(version: 2018_09_03_235108) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "article_images", force: :cascade do |t|
     t.bigint "article_id"
-    t.string "image"
+    t.string "image", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["article_id"], name: "index_article_images_on_article_id"
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2018_09_02_230957) do
   end
 
   create_table "articles", force: :cascade do |t|
-    t.datetime "entry_at"
+    t.datetime "entry_at", null: false
     t.string "title"
     t.text "content"
     t.boolean "published", default: true, null: false
@@ -85,6 +85,7 @@ ActiveRecord::Schema.define(version: 2018_09_02_230957) do
     t.datetime "updated_at", null: false
     t.boolean "admin", default: false, null: false
     t.integer "access_level", default: 0, null: false
+    t.string "comment"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

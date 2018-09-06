@@ -12,7 +12,7 @@ class Article < ApplicationRecord
   has_many :like, dependent: :destroy
 
 
-  enumerize :access_level, in: { normal: 0, friend: 1, family: 2 }
+  enumerize :access_level, in: { public: 0, normal: 1, friend: 2, family: 3 }
 
   scope :order_desc, -> { order(entry_at: :desc) }
   scope :published, -> { where(published: true) }
