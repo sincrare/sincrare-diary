@@ -26,6 +26,7 @@ gem 'dotenv-rails'
 gem 'cocoon'
 gem 'enumerize'
 gem 'fog-aws'
+gem 'aws-sdk'
 
 group :development, :test do
   gem 'rspec-rails'
