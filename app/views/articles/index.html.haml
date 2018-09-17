@@ -8,7 +8,8 @@
       .title
         %h2= article.title
       .content
-        = simple_format article.content.truncate(300, omission: '…')
+        = simple_format first_image(article.content)
+        = strip_tags article.content.truncate(300, omission: '…')
         - if article.content.length > 300
           =link_to "続きを読む", article_path(article)
   = paginate @articles
