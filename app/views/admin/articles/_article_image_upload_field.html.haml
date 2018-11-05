@@ -1,0 +1,6 @@
+.image-upload-field
+  %p
+    %b 画像アップロード
+  = form_tag(admin_article_images_path, class: 'dropzone', id: 'upload-dropzone') do
+    .fallback
+      = file_field_tag('article_image[image]')

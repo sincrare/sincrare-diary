@@ -6,7 +6,7 @@
   = @article.title
 %p
   %b 本文:
-  = simple_format @article.content
+  = simple_format replace_image_tag(@article.id, @article.content)
 %p
   %b 閲覧権限:
   = @article.access_level_text

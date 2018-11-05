@@ -225,6 +225,7 @@ ja:
         title: タイトル
         content: 本文
         published: 公開
+        access_level: アクセス権限
   enumerize:
     article:
       access_level:
