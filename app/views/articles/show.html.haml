@@ -6,8 +6,7 @@
     .title
       %h2= @article.title
     .content
-      = simple_format @article.content
-
+      = simple_format replace_image_tag(@article.id, @article.content)
 
   = link_to '戻る', articles_path
 

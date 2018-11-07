@@ -9,7 +9,6 @@ gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
-gem 'turbolinks', '~> 5'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'jquery-rails'
 gem 'haml-rails'
@@ -27,6 +26,7 @@ gem 'cocoon'
 gem 'enumerize'
 gem 'fog-aws'
 gem 'aws-sdk'
+gem 'dropzonejs-rails'
 
 group :development, :test do
   gem 'rspec-rails'
