@@ -3,7 +3,7 @@ class Admin::ArticlesController < Admin::ApplicationController
 
   # GET /articles
   def index
-    @articles = Article.order_desc.page(params[:page])
+    @articles = Article.default_order.page(params[:page])
   end
 
   # GET /articles/1

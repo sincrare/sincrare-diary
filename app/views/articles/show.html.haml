@@ -7,6 +7,27 @@
       %h2= @article.title
     .content
       = simple_format replace_image_tag(@article.id, @article.content)
+    .comments
+      %a{name: :comment}
+      - if @article.comments.present?
+        %hr.dotted
+        %h3 コメント
+        - @article.comments.default_order.each do |comment|
+          %hr
+          .comment
+            %p= simple_format comment.message
+            %p
+              = simple_format "#{comment.name} / #{l comment.created_at}"
+      %hr.dotted
+      %h3 コメントする
+      - if user_signed_in?
+        = simple_form_for(@article.comments.build, url: article_comments_path(@article)) do |f|
+          .form-inputs
+            = f.hidden_field :article_id
+            = f.input :name
+            = f.input :message
+          .form-actions
+            = f.button :submit, 'コメントする', class: "btn btn-primary"
 
   = link_to '戻る', articles_path
 
