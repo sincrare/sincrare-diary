@@ -9,7 +9,9 @@
         %h2= article.title
       .content
         = simple_format replace_image_tag(article.id, article.content)
-        =link_to "詳細表示", article_path(article)
+        = link_to "コメント(#{article.comments.count})", article_path(article, anchor: :comment)
+        \/
+        = link_to "この記事のURL", article_path(article)
   = paginate @articles
 
 = render 'sidebar'

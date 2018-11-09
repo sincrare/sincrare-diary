@@ -226,6 +226,9 @@ ja:
         content: 本文
         published: 公開
         access_level: アクセス権限
+      comment:
+        name: 名前
+        message: コメント
   enumerize:
     article:
       access_level:
