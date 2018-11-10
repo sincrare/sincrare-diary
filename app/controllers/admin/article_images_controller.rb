@@ -1,4 +1,5 @@
 class Admin::ArticleImagesController < Admin::ApplicationController
+
   def create
     @article_image = ArticleImage.new(article_image_params)
     if @article_image.save

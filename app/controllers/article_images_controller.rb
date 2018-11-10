@@ -1,5 +1,6 @@
 require 'csv'
 class ArticleImagesController < ApplicationController
+
   def show
     article = Article.find(params[:article_id])
     if article.accesible?(current_user)

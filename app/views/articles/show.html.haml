@@ -16,8 +16,7 @@
           %hr
           .comment
             %p= simple_format comment.message
-            %p
-              = simple_format "#{comment.name} / #{l comment.created_at}"
+            %p= simple_format "#{comment.name} / #{l comment.created_at}"
       %hr.dotted
       %h3 コメントする
       - if user_signed_in?
