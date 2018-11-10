@@ -15,13 +15,21 @@ class Article < ApplicationRecord
 
   scope :default_order, -> { order(entry_at: :desc) }
   scope :published, -> { where(published: true) }
-  scope :accessible, -> (user) { where("access_level <= ?", user.nil? ? 0 : user.access_level_before_type_cast) }
+  scope :accessible, -> (access_user) { where("access_level <= ?", access_user.nil? ? 0 : access_user.access_level_before_type_cast) }
 
   after_create do
     ArticleImage.link_uploaded_images(self.id)
   end
 
-  def accesible?(user)
-    access_level_before_type_cast <= (user.nil? ? 0 : user.access_level_before_type_cast)
+  def accesible?(access_user)
+    access_level_before_type_cast <= (access_user.nil? ? 0 : access_user.access_level_before_type_cast)
+  end
+
+  def next(access_user)
+    Article.published.accessible(access_user).where("entry_at > ?", self.entry_at).default_order.last
+  end
+
+  def previous(access_user)
+    Article.published.accessible(access_user).where("entry_at < ?", self.entry_at).default_order.first
   end
 end
