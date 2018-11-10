@@ -7,5 +7,4 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.published.accessible(current_user).find(params[:id])
   end
-
 end

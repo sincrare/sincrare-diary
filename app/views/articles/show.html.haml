@@ -16,8 +16,7 @@
           %hr
           .comment
             %p= simple_format comment.message
-            %p
-              = simple_format "#{comment.name} / #{l comment.created_at}"
+            %p= simple_format "#{comment.name} / #{l comment.created_at}"
       %hr.dotted
       %h3 コメントする
       - if user_signed_in?
@@ -29,6 +28,14 @@
           .form-actions
             = f.button :submit, 'コメントする', class: "btn btn-primary"
 
-  = link_to '戻る', articles_path
+  - next_article = @article.next(current_user)
+  - previous_article = @article.previous(current_user)
+  - if next_article
+    = link_to '<<次の記事', next_article
+    \|
+  = link_to 'HOME', articles_path
+  - if previous_article
+    \|
+    = link_to '前の記事>>', previous_article
 
 = render 'sidebar'
