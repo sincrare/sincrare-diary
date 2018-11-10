@@ -17,9 +17,9 @@
           .comment
             %p= simple_format comment.message
             %p= simple_format "#{comment.name} / #{l comment.created_at}"
-      %hr.dotted
-      %h3 コメントする
       - if user_signed_in?
+        %hr.dotted
+        %h3 コメントする
         = simple_form_for(@article.comments.build, url: article_comments_path(@article)) do |f|
           .form-inputs
             = f.hidden_field :article_id
