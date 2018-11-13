@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root "articles#index"
+
   devise_for :users
+
   resources :articles, only: [:index, :show] do
     resources :article_images, only: :show
     resources :comments, only: :create
@@ -10,5 +12,4 @@ Rails.application.routes.draw do
     resources :articles
     resources :article_images, only: :create
   end
-
 end

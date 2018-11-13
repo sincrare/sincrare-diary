@@ -20,9 +20,13 @@
       - if user_signed_in?
         %hr.dotted
         %h3 コメントする
-        = simple_form_for(@article.comments.build, url: article_comments_path(@article)) do |f|
+        - comment = @article.comments.build
+        - comment.name = current_user.name
+        = simple_form_for(comment, url: article_comments_path(@article)) do |f|
           .form-inputs
-            = f.hidden_field :article_id
+            -# = f.hidden_field :article_id
+            - # user でログインしているので、 name は不要では？
+            - # => ログインできなくても、コメントできた名残
             = f.input :name
             = f.input :message
           .form-actions

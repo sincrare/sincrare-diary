@@ -15,11 +15,20 @@ class Article < ApplicationRecord
 
   scope :default_order, -> { order(entry_at: :desc) }
   scope :published, -> { where(published: true) }
-  scope :accessible, -> (access_user) { where("access_level <= ?", access_user.nil? ? 0 : access_user.access_level_before_type_cast) }
+  scope :accessible, -> (access_user) {
+    # レベルの大小よりも、閲覧範囲で絞り込むような形のほうが良さそう
+    # where("access_level IN ?", [1, 2, 3, 4])
+    if current_user
+      where("access_level <= ?", access_user.access_level_before_type_cast)
+    else
+      where("access_level <= ?", 0)
+    end
+  }
 
-  after_create do
-    ArticleImage.link_uploaded_images(self.id)
-  end
+  # ids を view から渡してひも付きしたほうが良さそう
+  # after_create do
+  #   ArticleImage.link_uploaded_images(self.id)
+  # end
 
   def accesible?(access_user)
     access_level_before_type_cast <= (access_user.nil? ? 0 : access_user.access_level_before_type_cast)
