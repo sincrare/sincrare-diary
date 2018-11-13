@@ -45,6 +45,8 @@ class Admin::ArticlesController < Admin::ApplicationController
   end
 
   def article_params
+    # ids を view から渡してひも付きしたほうが良さそう
+    # params.require(:article).permit(:entry_at, :title, :content, :published, :access_level, :article_image_ids)
     params.require(:article).permit(:entry_at, :title, :content, :published, :access_level)
   end
 end

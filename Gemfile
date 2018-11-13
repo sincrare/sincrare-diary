@@ -18,10 +18,10 @@ gem 'font-awesome-rails'
 gem 'simple_form'
 gem 'carrierwave'
 gem 'mini_magick'
-gem 'faker'
+# gem 'faker'
 gem 'kaminari'
 gem 'kaminari-bootstrap'
-gem 'dotenv-rails'
+gem 'dotenv-rails' # heroku だったら、 dev/test だけでよいかも
 gem 'cocoon'
 gem 'enumerize'
 gem 'fog-aws'
@@ -33,6 +33,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'launchy'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'faker' # staging/production ではいらない
 end
 
 group :development do
@@ -49,6 +50,7 @@ group :test do
   gem 'database_rewinder'
 end
 
+# 好みかもしれないけど、 下にまとめなくても上でよいのでは？
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
