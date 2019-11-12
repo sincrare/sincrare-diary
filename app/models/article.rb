@@ -15,6 +15,7 @@ class Article < ApplicationRecord
 
   scope :default_order, -> { order(entry_at: :desc) }
   scope :published, -> { where(published: true) }
+  # ちょっと悩ましい、access_level を model化して整理したいところ
   scope :accessible, -> (access_user) { where("access_level <= ?", access_user.nil? ? 0 : access_user.access_level_before_type_cast) }
 
   after_create do
