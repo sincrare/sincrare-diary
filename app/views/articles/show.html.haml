@@ -20,7 +20,8 @@
       - if user_signed_in?
         %hr.dotted
         %h3 コメントする
-        = simple_form_for(@article.comments.build, url: article_comments_path(@article)) do |f|
+        - comment = @article.comments.build
+        = simple_form_for(comment, url: article_comments_path(@article)) do |f|
           .form-inputs
             = f.hidden_field :article_id
             = f.input :name

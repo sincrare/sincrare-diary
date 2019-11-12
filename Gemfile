@@ -18,7 +18,6 @@ gem 'font-awesome-rails'
 gem 'simple_form'
 gem 'carrierwave'
 gem 'mini_magick'
-gem 'faker'
 gem 'kaminari'
 gem 'kaminari-bootstrap'
 gem 'dotenv-rails'
@@ -27,12 +26,15 @@ gem 'enumerize'
 gem 'fog-aws'
 gem 'aws-sdk'
 gem 'dropzonejs-rails'
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'devise'
 
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'launchy'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'faker'
 end
 
 group :development do
@@ -49,6 +51,3 @@ group :test do
   gem 'database_rewinder'
 end
 
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-gem 'devise'
