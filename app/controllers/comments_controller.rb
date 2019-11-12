@@ -20,6 +20,7 @@ class CommentsController < ApplicationController
   end
 
   def comment_params
+    # article_idはいらない
     params.require(:comment).permit(:article_id, :name, :message)
   end
 end
