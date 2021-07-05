@@ -1,5 +1,6 @@
 .col-md-9
   .article
+    -# ここはpartialにできるかも？
     .entry_at
       = fa_icon('calendar-o')
       = l @article.entry_at
@@ -23,6 +24,7 @@
         - comment = @article.comments.build
         = simple_form_for(comment, url: article_comments_path(@article)) do |f|
           .form-inputs
+            -# ここのarticle_idはいらない
             = f.hidden_field :article_id
             = f.input :name
             = f.input :message
