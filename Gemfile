@@ -21,11 +21,11 @@ gem 'mini_magick'
 gem 'kaminari'
 gem 'kaminari-bootstrap'
 gem 'dotenv-rails'
-gem 'cocoon'
+gem 'cocoon' # nested form を簡単につくれる
 gem 'enumerize'
 gem 'fog-aws'
 gem 'aws-sdk'
-gem 'dropzonejs-rails'
+gem 'dropzonejs-rails' # ドラッグアンドドロップ
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 

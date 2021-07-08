@@ -5,6 +5,7 @@ class Admin::ArticlesController < Admin::ApplicationController
     @articles = Article.default_order.page(params[:page])
   end
 
+  # 書かなくてもrailsは動くけど、可読性のために残す
   def show
   end
 
@@ -34,6 +35,7 @@ class Admin::ArticlesController < Admin::ApplicationController
   end
 
   def destroy
+    # @article.destroy! にしたい
     @article.destroy
     redirect_to admin_articles_url, notice: '記事を削除しました'
   end
